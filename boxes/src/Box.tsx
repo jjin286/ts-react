@@ -1,3 +1,12 @@
+
+interface BoxPropsInterface{
+  id: string,
+  width: number,
+  height: number,
+  backgroundColor: string,
+  remove: (id : string) => void
+}
+
 /** Colored box presentation
  *
  * Props:
@@ -10,7 +19,7 @@
  * BoxList -> Box
  */
 
-function Box({ id, width = 5, height = 5, backgroundColor, remove }) {
+function Box({ id, width = 5, height = 5, backgroundColor, remove } : BoxPropsInterface) {
 
   /** Remove a box. */
   function handleRemove() {

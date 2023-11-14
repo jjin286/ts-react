@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import Box from "./Box";
 import NewBoxForm from "./NewBoxForm";
 
+interface BoxInterface{
+  id: string,
+  width: string,
+  height: string,
+  backgroundColor: string
+}
+
 /** Manage list of boxes
  *
  * State:
@@ -9,10 +16,10 @@ import NewBoxForm from "./NewBoxForm";
  */
 
 function BoxList() {
-  const [boxes, setBoxes] = useState([])
+  const [boxes, setBoxes] = useState<BoxInterface[]>([])
 
   /** add box with given { id, width, height, backgroundColor } */
-  function add(newBox) {
+  function add(newBox: BoxInterface) {
     setBoxes(boxes => [...boxes, newBox]);
   }
 
@@ -28,8 +35,8 @@ function BoxList() {
         <Box
           key={id}
           id={id}
-          width={width}
-          height={height}
+          width={Number(width)}
+          height={Number(height)}
           remove={remove}
           backgroundColor={backgroundColor}
         />
